@@ -20,6 +20,27 @@ const videos = {
             tagKey: "tagSea",
             titleKey: "sardegnaTitle",
             descKey: "sardegnaDesc"
+        },
+        {
+            id: "JCszJfAKEII",
+            theme: "mountain",
+            tagKey: "tagMountain",
+            titleKey: "fertazzaTitle",
+            descKey: "fertazzaDesc"
+        },
+        {
+            id: "ksH4jtXGFac",
+            theme: "town",
+            tagKey: "tagTown",
+            titleKey: "abbadiaTitle",
+            descKey: "abbadiaDesc"
+        },
+        {
+            id: "jOd_yJVEe2g",
+            theme: "sea",
+            tagKey: "tagSea",
+            titleKey: "girgoluTitle",
+            descKey: "girgoluDesc"
         }
     ],
     hiking: [
@@ -44,6 +65,20 @@ const videos = {
             titleKey: "grignaTitle",
             descKey: "grignaDesc",
             coverUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Grigna%20aerial%201.jpg"
+        },
+        {
+            id: "cJ_l6ufn6QE",
+            theme: "hiking",
+            tagKey: "tagMountain",
+            titleKey: "senalesTitle",
+            descKey: "senalesDesc"
+        },
+        {
+            id: "MffpwJRyt-I",
+            theme: "hiking",
+            tagKey: "tagHiking",
+            titleKey: "erveTitle",
+            descKey: "erveDesc"
         }
     ],
     ski: [
@@ -70,11 +105,25 @@ const videos = {
             titleKey: "paganellaTitle",
             descKey: "paganellaDesc",
             coverUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Andalo%20ski%20-%20View%20from%20Rifugio%20Paganela%202%20-%20panoramio.jpg"
+        },
+        {
+            id: "nwp1zsLRYho",
+            theme: "ski",
+            tagKey: "tagSki",
+            titleKey: "livignoTitle",
+            descKey: "livignoDesc"
+        },
+        {
+            id: "oWH8nqVePg8",
+            theme: "ski",
+            tagKey: "tagSki",
+            titleKey: "portesTitle",
+            descKey: "portesDesc"
         }
     ]
 };
 
-const spotlightIds = ["EmGVsProeXc", "B1v-HRNH8OM", "Zfs3iO6YhjQ", "AS1op2gW7kg"];
+const spotlightIds = ["EmGVsProeXc", "nwp1zsLRYho", "B1v-HRNH8OM", "cJ_l6ufn6QE", "ksH4jtXGFac", "AS1op2gW7kg"];
 
 const musicTracks = [
     {
@@ -162,7 +211,21 @@ const translations = {
         cerviniaTitle: "Cervinia Slopes",
         cerviniaDesc: "Cervinia ski area and Matterhorn views.",
         paganellaTitle: "Paganella Snowboarding",
-        paganellaDesc: "Paganella snowboarding and ski area views."
+        paganellaDesc: "Paganella snowboarding and ski area views.",
+        fertazzaTitle: "Cima Fertazza Aerial",
+        fertazzaDesc: "Stunning drone views of Cima Fertazza and Lago di Alleghe.",
+        abbadiaTitle: "Abbadia Lariana (Como)",
+        abbadiaDesc: "The beautiful shores of Lake Como at Abbadia Lariana.",
+        girgoluTitle: "Cala Girgolu Beach",
+        girgoluDesc: "Crystal clear waters of Cala Girgolu in Sardinia.",
+        senalesTitle: "Val Senales Glacier",
+        senalesDesc: "Breathtaking views of the Val Senales glacier and Otzi Peak.",
+        livignoTitle: "Livigno Ski Vlog",
+        livignoDesc: "A day on the slopes in the duty-free paradise of Livigno.",
+        portesTitle: "Portes du Soleil Ski",
+        portesDesc: "Skiing memories from the massive Portes du Soleil area.",
+        erveTitle: "Erve Hiking Trail",
+        erveDesc: "A peaceful hiking route through the village of Erve."
     },
     cn: {
         musicKicker: "音乐",
@@ -222,7 +285,21 @@ const translations = {
         cerviniaTitle: "Cervinia 雪道",
         cerviniaDesc: "Cervinia 雪场和马特洪峰视野。",
         paganellaTitle: "Paganella 单板滑雪",
-        paganellaDesc: "Paganella 单板和雪道。"
+        paganellaDesc: "Paganella 单板和雪道。",
+        fertazzaTitle: "Cima Fertazza 航拍",
+        fertazzaDesc: "Cima Fertazza 和 Alleghe 湖的壮丽航拍视角。",
+        abbadiaTitle: "科莫湖 Abbadia Lariana",
+        abbadiaDesc: "科莫湖畔 Abbadia Lariana 的宁静美景。",
+        girgoluTitle: "撒丁岛 Cala Girgolu",
+        girgoluDesc: "撒丁岛 Cala Girgolu 碧绿清澈的海水。",
+        senalesTitle: "Val Senales 冰川",
+        senalesDesc: "Val Senales 冰川和 Otzi 峰的震撼景观。",
+        livignoTitle: "Livigno 滑雪记录",
+        livignoDesc: "在 Livigno 免税天堂滑雪的一天。",
+        portesTitle: "太阳门雪场滑雪",
+        portesDesc: "瑞士太阳门 (Portes du Soleil) 雪场的滑雪回忆。",
+        erveTitle: "Erve 徒步路线",
+        erveDesc: "穿越意大利 Erve 小镇的宁静徒步之旅。"
     },
     it: {
         musicKicker: "Musica",
@@ -282,7 +359,21 @@ const translations = {
         cerviniaTitle: "Piste di Cervinia",
         cerviniaDesc: "Area sci di Cervinia e vista sul Cervino.",
         paganellaTitle: "Snowboard in Paganella",
-        paganellaDesc: "Snowboard e piste della Paganella."
+        paganellaDesc: "Snowboard e piste della Paganella.",
+        fertazzaTitle: "Cima Fertazza Drone",
+        fertazzaDesc: "Splendide riprese aeree di Cima Fertazza e del Lago di Alleghe.",
+        abbadiaTitle: "Abbadia Lariana (Como)",
+        abbadiaDesc: "Le bellissime rive del Lago di Como ad Abbadia Lariana.",
+        girgoluTitle: "Spiaggia di Cala Girgolu",
+        girgoluDesc: "Acque cristalline a Cala Girgolu, in Sardegna.",
+        senalesTitle: "Ghiacciaio Val Senales",
+        senalesDesc: "Viste mozzafiato sul ghiacciaio della Val Senales e Otzi Peak.",
+        livignoTitle: "Livigno Ski Vlog",
+        livignoDesc: "Una giornata sulle piste nel paradiso di Livigno.",
+        portesTitle: "Sci a Portes du Soleil",
+        portesDesc: "Ricordi di sci nel vasto comprensorio di Portes du Soleil.",
+        erveTitle: "Sentiero di Erve" ,
+        erveDesc: "Un tranquillo percorso di trekking attraverso il borgo di Erve."
     }
 };
 
