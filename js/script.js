@@ -84,6 +84,12 @@ const musicTracks = [
         spotifyId: "2WQPQezYWzlJlQtuGL0rgS"
     },
     {
+        id: "nights",
+        artist: "Avicii",
+        title: "The Nights",
+        spotifyId: "0ct6r3EGTcMLPtrXHDvVjc"
+    },
+    {
         id: "viva",
         artist: "Coldplay",
         title: "Viva La Vida",
