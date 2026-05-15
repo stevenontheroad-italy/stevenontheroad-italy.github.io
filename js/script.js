@@ -76,8 +76,33 @@ const videos = {
 
 const spotlightIds = ["EmGVsProeXc", "B1v-HRNH8OM", "Zfs3iO6YhjQ", "AS1op2gW7kg"];
 
+const musicTracks = [
+    {
+        id: "wake",
+        artist: "Avicii",
+        title: "Wake Me Up",
+        spotifyId: "2WQPQezYWzlJlQtuGL0rgS"
+    },
+    {
+        id: "viva",
+        artist: "Coldplay",
+        title: "Viva La Vida",
+        spotifyId: "6iO1ifqpQHRvK6WVwzpIjt"
+    },
+    {
+        id: "heaven",
+        artist: "Avicii",
+        title: "Heaven",
+        spotifyId: "0vrmHPfoBadXVr2n0m1aqZ"
+    }
+];
+
 const translations = {
     en: {
+        musicKicker: "Music",
+        musicTitle: "Trip soundtrack",
+        musicOpen: "Open music selector",
+        musicCollapse: "Hide music selector",
         navAerial: "Aerial",
         navHiking: "Hiking",
         navSki: "Ski",
@@ -135,6 +160,10 @@ const translations = {
         paganellaDesc: "Paganella snowboarding and ski area views."
     },
     cn: {
+        musicKicker: "音乐",
+        musicTitle: "旅途音乐",
+        musicOpen: "打开音乐选择",
+        musicCollapse: "隐藏音乐选择",
         navAerial: "航拍",
         navHiking: "爬山",
         navSki: "滑雪",
@@ -192,6 +221,10 @@ const translations = {
         paganellaDesc: "Paganella 单板和雪道。"
     },
     it: {
+        musicKicker: "Musica",
+        musicTitle: "Musica del viaggio",
+        musicOpen: "Apri selezione musica",
+        musicCollapse: "Nascondi selezione musica",
         navAerial: "Drone",
         navHiking: "Trekking",
         navSki: "Sci",
@@ -251,7 +284,9 @@ const translations = {
 };
 
 const state = {
-    lang: getInitialLanguage()
+    lang: getInitialLanguage(),
+    activeTrack: musicTracks[0].id,
+    musicTimer: null
 };
 
 function getInitialLanguage() {
@@ -296,6 +331,90 @@ function getVideoById(id) {
 
 function thumbnailUrl(id, size = "maxresdefault") {
     return `https://img.youtube.com/vi/${id}/${size}.jpg`;
+}
+
+function spotifyEmbedUrl(spotifyId) {
+    return `https://open.spotify.com/embed/track/${spotifyId}?utm_source=generator&theme=0`;
+}
+
+function getMusicTrack(id) {
+    return musicTracks.find((track) => track.id === id) || musicTracks[0];
+}
+
+function createMusicOptions() {
+    const container = document.getElementById("music-options");
+    container.innerHTML = musicTracks
+        .map((track) => `
+            <button class="music-option" type="button" data-track-id="${escapeHtml(track.id)}">
+                ${escapeHtml(track.artist)}
+                <span>${escapeHtml(track.title)}</span>
+            </button>
+        `)
+        .join("");
+}
+
+function setMusicTrack(trackId) {
+    const track = getMusicTrack(trackId);
+    const player = document.getElementById("spotify-player");
+
+    state.activeTrack = track.id;
+    player.src = spotifyEmbedUrl(track.spotifyId);
+
+    document.querySelectorAll(".music-option").forEach((button) => {
+        button.classList.toggle("active", button.dataset.trackId === track.id);
+    });
+
+    expandMusicBanner();
+    scheduleMusicCollapse(9000);
+}
+
+function expandMusicBanner() {
+    document.body.classList.add("music-expanded");
+    clearTimeout(state.musicTimer);
+}
+
+function collapseMusicBanner() {
+    const banner = document.getElementById("music-banner");
+    if (banner.contains(document.activeElement)) {
+        scheduleMusicCollapse(3500);
+        return;
+    }
+    document.body.classList.remove("music-expanded");
+}
+
+function scheduleMusicCollapse(delay = 6500) {
+    clearTimeout(state.musicTimer);
+    state.musicTimer = window.setTimeout(collapseMusicBanner, delay);
+}
+
+function initMusicBanner() {
+    const banner = document.getElementById("music-banner");
+    const wakeZone = document.getElementById("music-wake-zone");
+    const tab = document.getElementById("music-tab");
+    const collapseButton = document.getElementById("music-collapse");
+
+    createMusicOptions();
+    setMusicTrack(state.activeTrack);
+
+    document.querySelectorAll(".music-option").forEach((button) => {
+        button.addEventListener("click", () => setMusicTrack(button.dataset.trackId));
+    });
+
+    wakeZone.addEventListener("mouseenter", () => {
+        expandMusicBanner();
+        scheduleMusicCollapse(7000);
+    });
+
+    tab.addEventListener("click", () => {
+        expandMusicBanner();
+        scheduleMusicCollapse(9000);
+    });
+
+    banner.addEventListener("mouseenter", () => clearTimeout(state.musicTimer));
+    banner.addEventListener("mouseleave", () => scheduleMusicCollapse(2800));
+    banner.addEventListener("focusin", expandMusicBanner);
+    banner.addEventListener("focusout", () => scheduleMusicCollapse(3500));
+    collapseButton.addEventListener("click", collapseMusicBanner);
 }
 
 function createVideoCard(video, extraClass = "") {
@@ -409,6 +528,8 @@ function closeVideo() {
 }
 
 function init() {
+    initMusicBanner();
+
     document.querySelectorAll(".lang-selector button").forEach((button) => {
         button.addEventListener("click", () => setLang(button.dataset.lang));
     });

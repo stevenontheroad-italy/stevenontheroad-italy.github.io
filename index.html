@@ -11,6 +11,35 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <div class="music-wake-zone" id="music-wake-zone" aria-hidden="true"></div>
+    <button class="music-tab" id="music-tab" type="button" data-i18n-aria="musicOpen">
+        <span aria-hidden="true">♪</span>
+    </button>
+
+    <section class="music-banner" id="music-banner" aria-label="Music selector">
+        <div class="music-banner-inner">
+            <div class="music-copy">
+                <p class="eyebrow" data-i18n="musicKicker">Music</p>
+                <h2 data-i18n="musicTitle">Trip soundtrack</h2>
+                <div class="music-options" id="music-options" aria-label="Music choices"></div>
+            </div>
+            <div class="spotify-panel">
+                <button class="music-collapse" id="music-collapse" type="button" data-i18n-aria="musicCollapse">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <iframe
+                    id="spotify-player"
+                    title="Spotify player"
+                    src="https://open.spotify.com/embed/track/2WQPQezYWzlJlQtuGL0rgS?utm_source=generator&theme=0"
+                    width="100%"
+                    height="80"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
     <nav class="site-nav" aria-label="Primary">
         <a class="brand" href="#top" aria-label="Steven On The Road home">Steven On The Road</a>
         <div class="nav-links" aria-label="Sections">

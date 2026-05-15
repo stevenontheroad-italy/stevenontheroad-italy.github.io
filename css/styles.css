@@ -13,6 +13,7 @@
     --sea: #54a2a3;
     --snow: #cfe8ea;
     --shadow: 0 28px 80px rgba(0, 0, 0, 0.38);
+    --music-banner-height: 168px;
 }
 
 * {
@@ -66,12 +67,178 @@ img {
     background: rgba(17, 18, 13, 0.74);
     border-bottom: 1px solid transparent;
     backdrop-filter: blur(18px);
-    transition: background 0.25s ease, border-color 0.25s ease;
+    transition: top 0.34s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+body.music-expanded .site-nav {
+    top: var(--music-banner-height);
 }
 
 .site-nav.scrolled {
     background: rgba(17, 18, 13, 0.94);
     border-color: var(--line);
+}
+
+.music-wake-zone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 210;
+    height: 18px;
+}
+
+.music-tab {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    z-index: 230;
+    display: grid;
+    place-items: center;
+    width: 3.2rem;
+    height: 1.45rem;
+    border: 1px solid rgba(250, 243, 229, 0.3);
+    border-top: 0;
+    border-radius: 0 0 999px 999px;
+    color: var(--text);
+    background: rgba(17, 18, 13, 0.78);
+    backdrop-filter: blur(14px);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transform: translateX(-50%);
+    transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.music-tab:hover,
+.music-tab:focus-visible {
+    background: rgba(228, 91, 53, 0.92);
+    outline: none;
+}
+
+body.music-expanded .music-tab {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -0.5rem);
+}
+
+.music-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 220;
+    height: var(--music-banner-height);
+    overflow: hidden;
+    color: var(--text);
+    background: linear-gradient(90deg, rgba(17, 18, 13, 0.98), rgba(26, 25, 18, 0.97));
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.34);
+    transform: translateY(-100%);
+    transition: transform 0.34s ease;
+}
+
+body.music-expanded .music-banner {
+    transform: translateY(0);
+}
+
+.music-banner-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 520px);
+    align-items: center;
+    gap: 1.25rem;
+    width: min(1440px, 100%);
+    height: 100%;
+    margin: 0 auto;
+    padding: 1rem 5%;
+}
+
+.music-copy h2 {
+    margin: 0;
+    font-size: 1.45rem;
+    line-height: 1.1;
+}
+
+.music-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.85rem;
+}
+
+.music-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 2.35rem;
+    max-width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.48rem 0.68rem;
+    color: var(--faint);
+    background: rgba(255, 255, 255, 0.04);
+    cursor: pointer;
+    font-size: 0.86rem;
+    font-weight: 800;
+    text-align: left;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.music-option span {
+    color: var(--muted);
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+.music-option:hover,
+.music-option:focus-visible,
+.music-option.active {
+    color: var(--text);
+    border-color: rgba(231, 180, 78, 0.7);
+    background: rgba(231, 180, 78, 0.12);
+    outline: none;
+}
+
+.music-option.active span {
+    color: var(--gold);
+}
+
+.spotify-panel {
+    position: relative;
+    min-width: 0;
+    padding-right: 3.1rem;
+}
+
+.spotify-panel iframe {
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: 8px;
+    background: #000;
+}
+
+.music-collapse {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: grid;
+    place-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.07);
+    cursor: pointer;
+    font-size: 1.35rem;
+    line-height: 1;
+    transform: translateY(-50%);
+}
+
+.music-collapse:hover,
+.music-collapse:focus-visible {
+    color: #11120d;
+    background: var(--text);
+    outline: none;
 }
 
 .brand {
@@ -591,6 +758,44 @@ main {
 }
 
 @media (max-width: 760px) {
+    :root {
+        --music-banner-height: 278px;
+    }
+
+    .music-banner-inner {
+        grid-template-columns: 1fr;
+        align-content: center;
+        gap: 0.85rem;
+        padding-top: 0.85rem;
+        padding-bottom: 0.85rem;
+    }
+
+    .music-copy h2 {
+        font-size: 1.2rem;
+    }
+
+    .music-options {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 0.15rem;
+    }
+
+    .music-option {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+
+    .spotify-panel {
+        padding-right: 0;
+        padding-top: 2.9rem;
+    }
+
+    .music-collapse {
+        top: 0;
+        right: 0;
+        transform: none;
+    }
+
     .site-nav {
         grid-template-columns: 1fr auto;
         gap: 0.75rem;
