@@ -522,7 +522,7 @@ function createVideoCard(video, extraClass = "") {
     return `
         <button class="video-card ${extraClass} theme-${video.theme}" type="button" data-video-id="${escapeHtml(video.id)}" aria-label="${escapeHtml(ariaLabel)}">
             <span class="thumbnail-wrap">
-                <img src="${escapeHtml(imageSrc)}" data-fallback="${escapeHtml(imageFallback)}" alt="${escapeHtml(title)}">
+                <img src="${escapeHtml(imageSrc)}" data-fallback="${escapeHtml(imageFallback)}" alt="${escapeHtml(title)}" onerror="if(this.src !== this.dataset.fallback) { this.src = this.dataset.fallback; }">
             </span>
             <span class="card-shade" aria-hidden="true"></span>
             <span class="play-pill" aria-hidden="true"><span></span></span>
