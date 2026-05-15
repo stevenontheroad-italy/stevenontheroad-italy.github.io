@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steven On The Road</title>
+    <meta name="description" content="Steven On The Road travel video showcase: aerial views, hiking adventures, and ski memories from Italy and beyond.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="site-nav" aria-label="Primary">
+        <a class="brand" href="#top" aria-label="Steven On The Road home">Steven On The Road</a>
+        <div class="nav-links" aria-label="Sections">
+            <a href="#aerial" data-i18n="navAerial">Aerial</a>
+            <a href="#hiking" data-i18n="navHiking">Hiking</a>
+            <a href="#ski" data-i18n="navSki">Ski</a>
+        </div>
+        <div class="lang-selector" aria-label="Language">
+            <button type="button" data-lang="en" class="active">EN</button>
+            <button type="button" data-lang="cn">中文</button>
+            <button type="button" data-lang="it">IT</button>
+        </div>
+    </nav>
+
+    <header class="hero" id="top">
+        <img
+            class="hero-bg"
+            src="https://img.youtube.com/vi/EmGVsProeXc/maxresdefault.jpg"
+            data-fallback="https://img.youtube.com/vi/EmGVsProeXc/hqdefault.jpg"
+            alt=""
+            aria-hidden="true"
+        >
+        <div class="hero-overlay"></div>
+        <div class="hero-inner">
+            <p class="eyebrow" data-i18n="heroEyebrow">Steven On The Road</p>
+            <h1 data-i18n="heroTitle">Italy: aerial, hiking, ski.</h1>
+            <p class="hero-copy" data-i18n="heroSubtitle">Aerial videos are grouped by mountain, town, and sea. Hiking and ski videos follow below. Click any cover to play.</p>
+            <div class="hero-actions">
+                <button class="primary-action video-trigger" type="button" data-video-id="EmGVsProeXc">
+                    <span class="play-mark" aria-hidden="true"></span>
+                    <span data-i18n="heroCta">Play aerial video</span>
+                </button>
+                <a class="text-action" href="#featured" data-i18n="heroBrowse">Browse videos</a>
+            </div>
+            <div class="hero-meta" aria-label="Video categories">
+                <span data-i18n="heroMetaAerial">Drone: mountain, town, sea</span>
+                <span data-i18n="heroMetaHiking">Hiking routes</span>
+                <span data-i18n="heroMetaSki">Ski memories</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="showcase" id="featured" aria-labelledby="featured-title">
+            <div class="section-heading">
+                <p class="eyebrow" data-i18n="featuredKicker">Recommended</p>
+                <h2 id="featured-title" data-i18n="featuredTitle">Recommended videos</h2>
+                <p data-i18n="featuredSubtitle">Click any cover to play.</p>
+            </div>
+            <div class="spotlight-grid" id="spotlight-grid"></div>
+        </section>
+
+        <section class="category" id="aerial" aria-labelledby="aerial-title">
+            <div class="section-heading split-heading">
+                <div>
+                    <p class="eyebrow" data-i18n="aerialKicker">Aerial</p>
+                    <h2 id="aerial-title" data-i18n="aerialTitle">Mountain / Town / Sea</h2>
+                </div>
+                <p data-i18n="aerialSubtitle">Three aerial video groups.</p>
+            </div>
+            <div class="video-grid aerial-grid" id="aerial-grid"></div>
+        </section>
+
+        <section class="category" id="hiking" aria-labelledby="hiking-title">
+            <div class="section-heading split-heading">
+                <div>
+                    <p class="eyebrow" data-i18n="hikingKicker">Hiking</p>
+                    <h2 id="hiking-title" data-i18n="hikingTitle">Hiking videos</h2>
+                </div>
+                <p data-i18n="hikingSubtitle">Trails, lakes, and mountain views.</p>
+            </div>
+            <div class="video-grid" id="hiking-grid"></div>
+        </section>
+
+        <section class="category" id="ski" aria-labelledby="ski-title">
+            <div class="section-heading split-heading">
+                <div>
+                    <p class="eyebrow" data-i18n="skiKicker">Ski</p>
+                    <h2 id="ski-title" data-i18n="skiTitle">Ski videos</h2>
+                </div>
+                <p data-i18n="skiSubtitle">Ski slopes, snowboarding, and winter routes.</p>
+            </div>
+            <div class="video-grid" id="ski-grid"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p data-i18n="footerText">© 2026 Steven On The Road. All rights reserved.</p>
+        <p class="photo-credit">
+            <span data-i18n="photoCreditLead">Fallback cover photos via</span>
+            <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a>.
+        </p>
+    </footer>
+
+    <div id="video-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <button class="close-btn" type="button" data-i18n-aria="closeVideo">
+                <span aria-hidden="true">×</span>
+            </button>
+            <p class="modal-title" id="modal-title" data-i18n="modalTitle">Now playing</p>
+            <div class="video-wrapper">
+                <iframe
+                    id="youtube-player"
+                    title="YouTube video player"
+                    src=""
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
