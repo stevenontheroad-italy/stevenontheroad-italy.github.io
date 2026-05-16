@@ -468,6 +468,180 @@ main {
     gap: 2rem;
 }
 
+.section-map {
+    display: grid;
+    grid-template-columns: minmax(0, 0.72fr) minmax(360px, 0.58fr);
+    gap: 1rem;
+    align-items: stretch;
+    min-height: 230px;
+    margin: 0 0 1.15rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.map-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    padding: 1.2rem;
+}
+
+.map-label {
+    margin: 0 0 0.55rem;
+    color: var(--gold);
+    font-size: 0.74rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.map-copy h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.1;
+}
+
+.map-copy p:not(.map-label) {
+    margin: 0.7rem 0 0;
+    color: var(--muted);
+}
+
+.map-locations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 1rem;
+}
+
+.map-locations a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.75rem;
+    padding: 0.35rem 0.5rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--faint);
+    background: rgba(0, 0, 0, 0.18);
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.map-locations a:hover,
+.map-locations a:focus-visible {
+    border-color: rgba(246, 194, 91, 0.65);
+    color: var(--cream);
+    background: rgba(246, 194, 91, 0.12);
+}
+
+.map-frame {
+    position: relative;
+    overflow: hidden;
+    min-height: 230px;
+    background:
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.07) 0 1px, transparent 1px 34px),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 40px),
+        linear-gradient(135deg, rgba(19, 45, 49, 0.96), rgba(27, 43, 28, 0.96));
+}
+
+.mini-map {
+    position: absolute;
+    inset: 0;
+    min-height: 230px;
+}
+
+.mini-map::before {
+    content: "";
+    position: absolute;
+    inset: 10%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transform: skew(-8deg) rotate(-4deg);
+}
+
+.map-route {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.map-route polyline {
+    fill: none;
+    stroke: rgba(246, 194, 91, 0.72);
+    stroke-width: 0.85;
+    stroke-dasharray: 3 2.4;
+    vector-effect: non-scaling-stroke;
+}
+
+.map-pin {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 1.55rem;
+    height: 1.55rem;
+    border: 2px solid rgba(255, 255, 255, 0.92);
+    border-radius: 999px;
+    color: #1c170a;
+    background: var(--gold);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+    font-size: 0.68rem;
+    font-weight: 900;
+    text-decoration: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.map-pin:hover,
+.map-pin:focus-visible {
+    z-index: 4;
+    background: var(--cream);
+    transform: translate(-50%, -50%) scale(1.12);
+}
+
+.map-pin em {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 0.42rem);
+    display: none;
+    width: max-content;
+    max-width: 10rem;
+    padding: 0.35rem 0.45rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--cream);
+    background: rgba(8, 10, 8, 0.9);
+    font-size: 0.72rem;
+    font-style: normal;
+    line-height: 1.2;
+    transform: translateX(-50%);
+}
+
+.map-pin:hover em,
+.map-pin:focus-visible em {
+    display: block;
+}
+
+.map-open-link {
+    position: absolute;
+    right: 0.8rem;
+    bottom: 0.8rem;
+    z-index: 5;
+    padding: 0.4rem 0.55rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 6px;
+    color: var(--cream);
+    background: rgba(9, 10, 8, 0.72);
+    font-size: 0.72rem;
+    font-weight: 900;
+    text-decoration: none;
+}
+
 .spotlight-grid {
     display: grid;
     grid-template-columns: 1.25fr 1fr 1fr;
@@ -755,6 +929,10 @@ main {
         grid-template-columns: 1fr;
         gap: 0.5rem;
     }
+
+    .section-map {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 760px) {
@@ -848,6 +1026,19 @@ main {
     .showcase,
     .category {
         margin-bottom: 4rem;
+    }
+
+    .section-map {
+        min-height: 0;
+    }
+
+    .map-copy {
+        padding: 1rem;
+    }
+
+    .map-frame,
+    .mini-map {
+        min-height: 260px;
     }
 
     .section-heading h2 {

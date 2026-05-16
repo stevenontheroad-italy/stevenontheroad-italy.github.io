@@ -29,6 +29,13 @@ const videos = {
             descKey: "fertazzaDesc"
         },
         {
+            id: "Ppbfqa0Msrw",
+            theme: "mountain",
+            tagKey: "tagMountain",
+            titleKey: "brusagoTitle",
+            descKey: "brusagoDesc"
+        },
+        {
             id: "ksH4jtXGFac",
             theme: "town",
             tagKey: "tagTown",
@@ -36,11 +43,39 @@ const videos = {
             descKey: "abbadiaDesc"
         },
         {
+            id: "KvVVLjbIt2k",
+            theme: "town",
+            tagKey: "tagTown",
+            titleKey: "leccoTitle",
+            descKey: "leccoDesc"
+        },
+        {
+            id: "P_YhU5D_0pY",
+            theme: "town",
+            tagKey: "tagTown",
+            titleKey: "molvenoTitle",
+            descKey: "molvenoDesc"
+        },
+        {
             id: "jOd_yJVEe2g",
             theme: "sea",
             tagKey: "tagSea",
             titleKey: "girgoluTitle",
             descKey: "girgoluDesc"
+        },
+        {
+            id: "99PYyXH7J2w",
+            theme: "sea",
+            tagKey: "tagSea",
+            titleKey: "brandinchiTitle",
+            descKey: "brandinchiDesc"
+        },
+        {
+            id: "2e4GKbHVo6o",
+            theme: "sea",
+            tagKey: "tagSea",
+            titleKey: "luImpostuTitle",
+            descKey: "luImpostuDesc"
         }
     ],
     hiking: [
@@ -78,7 +113,8 @@ const videos = {
             theme: "hiking",
             tagKey: "tagHiking",
             titleKey: "erveTitle",
-            descKey: "erveDesc"
+            descKey: "erveDesc",
+            coverUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Beata_Vergine_di_Lourdes_%28Erve%29_01.jpg"
         }
     ],
     ski: [
@@ -111,19 +147,35 @@ const videos = {
             theme: "ski",
             tagKey: "tagSki",
             titleKey: "livignoTitle",
-            descKey: "livignoDesc"
+            descKey: "livignoDesc",
+            coverUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Livigno%27s_ski_slope_%2813335023544%29.jpg"
         },
         {
             id: "oWH8nqVePg8",
             theme: "ski",
             tagKey: "tagSki",
             titleKey: "portesTitle",
-            descKey: "portesDesc"
+            descKey: "portesDesc",
+            coverUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Avoriaz%20-%20panoramio%20%281%29.jpg"
+        },
+        {
+            id: "_u7XJScXw6E",
+            theme: "ski",
+            tagKey: "tagSki",
+            titleKey: "bobbioTitle",
+            descKey: "bobbioDesc"
+        },
+        {
+            id: "iW5li9_jY8U",
+            theme: "ski",
+            tagKey: "tagSki",
+            titleKey: "bobbioVlogTitle",
+            descKey: "bobbioVlogDesc"
         }
     ]
 };
 
-const spotlightIds = ["EmGVsProeXc", "nwp1zsLRYho", "B1v-HRNH8OM", "cJ_l6ufn6QE", "ksH4jtXGFac", "AS1op2gW7kg"];
+const spotlightIds = ["EmGVsProeXc", "B1v-HRNH8OM", "cJ_l6ufn6QE", "Ppbfqa0Msrw", "AS1op2gW7kg", "99PYyXH7J2w"];
 
 const musicTracks = [
     {
@@ -152,6 +204,54 @@ const musicTracks = [
     }
 ];
 
+const sectionMaps = {
+    aerial: {
+        titleKey: "aerialMapTitle",
+        introKey: "aerialMapIntro",
+        mapQuery: "Dolomites Lake Garda Lake Como Molveno Sardinia Italy",
+        bounds: { latMin: 40.6, latMax: 46.8, lngMin: 8.9, lngMax: 12.3 },
+        locations: [
+            { name: "Passo Oclini", lat: 46.35, lng: 11.43 },
+            { name: "Cima Fertazza", lat: 46.47, lng: 12.02 },
+            { name: "Brusago", lat: 46.13, lng: 11.25 },
+            { name: "Limone sul Garda", lat: 45.81, lng: 10.79 },
+            { name: "Lecco", lat: 45.85, lng: 9.39 },
+            { name: "Abbadia Lariana", lat: 45.9, lng: 9.33 },
+            { name: "Molveno", lat: 46.14, lng: 10.96 },
+            { name: "Cala Girgolu", lat: 40.87, lng: 9.7 },
+            { name: "Cala Brandinchi", lat: 40.83, lng: 9.71 },
+            { name: "Lu Impostu", lat: 40.82, lng: 9.69 }
+        ]
+    },
+    hiking: {
+        titleKey: "hikingMapTitle",
+        introKey: "hikingMapIntro",
+        mapQuery: "Mottarone Grigna Val Senales Erve Italy",
+        bounds: { latMin: 45.65, latMax: 46.85, lngMin: 8.25, lngMax: 11.05 },
+        locations: [
+            { name: "Mottarone", lat: 45.88, lng: 8.45 },
+            { name: "Lake Como", lat: 46.02, lng: 9.26 },
+            { name: "Grigna", lat: 45.92, lng: 9.39 },
+            { name: "Val Senales", lat: 46.73, lng: 10.91 },
+            { name: "Erve", lat: 45.82, lng: 9.45 }
+        ]
+    },
+    ski: {
+        titleKey: "skiMapTitle",
+        introKey: "skiMapIntro",
+        mapQuery: "Kronplatz Cervinia Paganella Livigno Portes du Soleil Piani di Bobbio",
+        bounds: { latMin: 45.55, latMax: 46.85, lngMin: 6.55, lngMax: 12.25 },
+        locations: [
+            { name: "Kronplatz", lat: 46.74, lng: 11.96 },
+            { name: "Cervinia", lat: 45.93, lng: 7.63 },
+            { name: "Paganella", lat: 46.16, lng: 11.04 },
+            { name: "Livigno", lat: 46.54, lng: 10.13 },
+            { name: "Portes du Soleil", lat: 46.2, lng: 6.85 },
+            { name: "Piani di Bobbio", lat: 45.96, lng: 9.45 }
+        ]
+    }
+};
+
 const translations = {
     en: {
         musicKicker: "Music",
@@ -175,12 +275,18 @@ const translations = {
         aerialKicker: "Aerial",
         aerialTitle: "Mountain / Town / Sea",
         aerialSubtitle: "Three aerial video groups.",
+        aerialMapTitle: "Aerial locations",
+        aerialMapIntro: "Dolomites, Garda, Como, Molveno, and Sardinia.",
         hikingKicker: "Hiking",
         hikingTitle: "Hiking videos",
         hikingSubtitle: "Trails, lakes, and mountain views.",
+        hikingMapTitle: "Hiking locations",
+        hikingMapIntro: "Mountain routes around lakes, peaks, and alpine valleys.",
         skiKicker: "Ski",
         skiTitle: "Ski videos",
         skiSubtitle: "Ski slopes, snowboarding, and winter routes.",
+        skiMapTitle: "Ski locations",
+        skiMapIntro: "Winter stops across the Alps and ski resorts.",
         footerText: "© 2026 Steven On The Road. All rights reserved.",
         modalTitle: "Now playing",
         closeVideo: "Close video",
@@ -214,16 +320,30 @@ const translations = {
         paganellaDesc: "Paganella snowboarding and ski area views.",
         fertazzaTitle: "Cima Fertazza Aerial",
         fertazzaDesc: "Stunning drone views of Cima Fertazza and Lago di Alleghe.",
+        brusagoTitle: "Brusago Dolomiti",
+        brusagoDesc: "A quiet Dolomites village framed by forest and mountain ridges.",
         abbadiaTitle: "Abbadia Lariana (Como)",
         abbadiaDesc: "The beautiful shores of Lake Como at Abbadia Lariana.",
+        leccoTitle: "Lecco & Abbadia Lariana",
+        leccoDesc: "Lake Como waterfront views between Lecco and Abbadia Lariana.",
+        molvenoTitle: "Molveno Aerial",
+        molvenoDesc: "Aerial views around Lake Molveno and the Brenta Dolomites.",
         girgoluTitle: "Cala Girgolu Beach",
         girgoluDesc: "Crystal clear waters of Cala Girgolu in Sardinia.",
+        brandinchiTitle: "Cala Brandinchi",
+        brandinchiDesc: "A bright Sardinian beach known for shallow turquoise water.",
+        luImpostuTitle: "Lu Impostu & Cala Brandinchi",
+        luImpostuDesc: "Two Sardinian beaches with soft sand and clear water.",
         senalesTitle: "Val Senales Glacier",
         senalesDesc: "Breathtaking views of the Val Senales glacier and Otzi Peak.",
         livignoTitle: "Livigno Ski Vlog",
         livignoDesc: "A day on the slopes in the duty-free paradise of Livigno.",
         portesTitle: "Portes du Soleil Ski",
         portesDesc: "Skiing memories from the massive Portes du Soleil area.",
+        bobbioTitle: "Piani di Bobbio",
+        bobbioDesc: "A winter day in the Piani di Bobbio ski area.",
+        bobbioVlogTitle: "Piani di Bobbio Vlog",
+        bobbioVlogDesc: "Another ski day around the slopes of Piani di Bobbio.",
         erveTitle: "Erve Hiking Trail",
         erveDesc: "A peaceful hiking route through the village of Erve."
     },
@@ -249,12 +369,18 @@ const translations = {
         aerialKicker: "航拍",
         aerialTitle: "山 / 小镇 / 海",
         aerialSubtitle: "三个航拍子板块。",
+        aerialMapTitle: "航拍地点",
+        aerialMapIntro: "多洛米蒂、加尔达湖、科莫湖、Molveno 和撒丁岛。",
         hikingKicker: "爬山",
         hikingTitle: "爬山视频",
         hikingSubtitle: "徒步路线、湖景和山景。",
+        hikingMapTitle: "爬山地点",
+        hikingMapIntro: "湖区、山峰和阿尔卑斯山谷里的徒步路线。",
         skiKicker: "滑雪",
         skiTitle: "滑雪视频",
         skiSubtitle: "雪道、滑雪和单板。",
+        skiMapTitle: "滑雪地点",
+        skiMapIntro: "阿尔卑斯和多个滑雪场的冬季路线。",
         footerText: "© 2026 Steven On The Road. All rights reserved.",
         modalTitle: "正在播放",
         closeVideo: "关闭视频",
@@ -288,16 +414,30 @@ const translations = {
         paganellaDesc: "Paganella 单板和雪道。",
         fertazzaTitle: "Cima Fertazza 航拍",
         fertazzaDesc: "Cima Fertazza 和 Alleghe 湖的壮丽航拍视角。",
+        brusagoTitle: "Brusago 多洛米蒂",
+        brusagoDesc: "森林、村庄和多洛米蒂山脊组成的安静画面。",
         abbadiaTitle: "科莫湖 Abbadia Lariana",
         abbadiaDesc: "科莫湖畔 Abbadia Lariana 的宁静美景。",
+        leccoTitle: "Lecco 与 Abbadia Lariana",
+        leccoDesc: "Lecco 到 Abbadia Lariana 一带的科莫湖湖岸风景。",
+        molvenoTitle: "Molveno 航拍",
+        molvenoDesc: "Molveno 湖和 Brenta 多洛米蒂周边航拍。",
         girgoluTitle: "撒丁岛 Cala Girgolu",
         girgoluDesc: "撒丁岛 Cala Girgolu 碧绿清澈的海水。",
+        brandinchiTitle: "Cala Brandinchi",
+        brandinchiDesc: "撒丁岛浅蓝海水和细沙海滩。",
+        luImpostuTitle: "Lu Impostu 与 Cala Brandinchi",
+        luImpostuDesc: "两个撒丁岛海滩，海水清澈、沙滩开阔。",
         senalesTitle: "Val Senales 冰川",
         senalesDesc: "Val Senales 冰川和 Otzi 峰的震撼景观。",
         livignoTitle: "Livigno 滑雪记录",
         livignoDesc: "在 Livigno 免税天堂滑雪的一天。",
         portesTitle: "太阳门雪场滑雪",
         portesDesc: "瑞士太阳门 (Portes du Soleil) 雪场的滑雪回忆。",
+        bobbioTitle: "Piani di Bobbio",
+        bobbioDesc: "Piani di Bobbio 雪场的冬季滑雪日。",
+        bobbioVlogTitle: "Piani di Bobbio Vlog",
+        bobbioVlogDesc: "Piani di Bobbio 雪道周边的另一段滑雪记录。",
         erveTitle: "Erve 徒步路线",
         erveDesc: "穿越意大利 Erve 小镇的宁静徒步之旅。"
     },
@@ -323,12 +463,18 @@ const translations = {
         aerialKicker: "Drone",
         aerialTitle: "Montagna / Paese / Mare",
         aerialSubtitle: "Tre gruppi di video drone.",
+        aerialMapTitle: "Luoghi drone",
+        aerialMapIntro: "Dolomiti, Garda, Como, Molveno e Sardegna.",
         hikingKicker: "Trekking",
         hikingTitle: "Video trekking",
         hikingSubtitle: "Sentieri, laghi e viste di montagna.",
+        hikingMapTitle: "Luoghi trekking",
+        hikingMapIntro: "Percorsi tra laghi, cime e valli alpine.",
         skiKicker: "Sci",
         skiTitle: "Video sci",
         skiSubtitle: "Piste, snowboard e percorsi sulla neve.",
+        skiMapTitle: "Luoghi sci",
+        skiMapIntro: "Tappe invernali tra Alpi e comprensori sciistici.",
         footerText: "© 2026 Steven On The Road. Tutti i diritti riservati.",
         modalTitle: "In riproduzione",
         closeVideo: "Chiudi video",
@@ -362,16 +508,30 @@ const translations = {
         paganellaDesc: "Snowboard e piste della Paganella.",
         fertazzaTitle: "Cima Fertazza Drone",
         fertazzaDesc: "Splendide riprese aeree di Cima Fertazza e del Lago di Alleghe.",
+        brusagoTitle: "Brusago Dolomiti",
+        brusagoDesc: "Un paese tranquillo tra boschi e creste dolomitiche.",
         abbadiaTitle: "Abbadia Lariana (Como)",
         abbadiaDesc: "Le bellissime rive del Lago di Como ad Abbadia Lariana.",
+        leccoTitle: "Lecco e Abbadia Lariana",
+        leccoDesc: "Vedute del lungolago tra Lecco e Abbadia Lariana.",
+        molvenoTitle: "Molveno Drone",
+        molvenoDesc: "Riprese aeree sul Lago di Molveno e sulle Dolomiti di Brenta.",
         girgoluTitle: "Spiaggia di Cala Girgolu",
         girgoluDesc: "Acque cristalline a Cala Girgolu, in Sardegna.",
+        brandinchiTitle: "Cala Brandinchi",
+        brandinchiDesc: "Una spiaggia sarda luminosa con acqua turchese e bassa.",
+        luImpostuTitle: "Lu Impostu e Cala Brandinchi",
+        luImpostuDesc: "Due spiagge sarde con sabbia chiara e mare limpido.",
         senalesTitle: "Ghiacciaio Val Senales",
         senalesDesc: "Viste mozzafiato sul ghiacciaio della Val Senales e Otzi Peak.",
         livignoTitle: "Livigno Ski Vlog",
         livignoDesc: "Una giornata sulle piste nel paradiso di Livigno.",
         portesTitle: "Sci a Portes du Soleil",
         portesDesc: "Ricordi di sci nel vasto comprensorio di Portes du Soleil.",
+        bobbioTitle: "Piani di Bobbio",
+        bobbioDesc: "Una giornata invernale nel comprensorio dei Piani di Bobbio.",
+        bobbioVlogTitle: "Piani di Bobbio Vlog",
+        bobbioVlogDesc: "Un'altra giornata sulle piste dei Piani di Bobbio.",
         erveTitle: "Sentiero di Erve" ,
         erveDesc: "Un tranquillo percorso di trekking attraverso il borgo di Erve."
     }
@@ -425,6 +585,57 @@ function getVideoById(id) {
 
 function thumbnailUrl(id, size = "maxresdefault") {
     return `https://img.youtube.com/vi/${id}/${size}.jpg`;
+}
+
+function googleMapsSearchUrl(query) {
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+function projectMapPoint(location, bounds) {
+    const x = ((location.lng - bounds.lngMin) / (bounds.lngMax - bounds.lngMin)) * 100;
+    const y = ((bounds.latMax - location.lat) / (bounds.latMax - bounds.latMin)) * 100;
+
+    return {
+        x: Math.min(94, Math.max(6, x)),
+        y: Math.min(88, Math.max(12, y))
+    };
+}
+
+function createMapPins(map) {
+    return map.locations
+        .map((location, index) => {
+            const point = projectMapPoint(location, map.bounds);
+            const href = googleMapsSearchUrl(`${location.name}, Italy`);
+
+            return `
+                <a
+                    class="map-pin"
+                    style="--x: ${point.x.toFixed(2)}%; --y: ${point.y.toFixed(2)}%;"
+                    href="${escapeHtml(href)}"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="${escapeHtml(`Open ${location.name} in Google Maps`)}">
+                    <span>${index + 1}</span>
+                    <em>${escapeHtml(location.name)}</em>
+                </a>
+            `;
+        })
+        .join("");
+}
+
+function createMapRoute(map) {
+    const points = map.locations
+        .map((location) => {
+            const point = projectMapPoint(location, map.bounds);
+            return `${point.x.toFixed(2)},${point.y.toFixed(2)}`;
+        })
+        .join(" ");
+
+    return `
+        <svg class="map-route" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="none">
+            <polyline points="${points}"></polyline>
+        </svg>
+    `;
 }
 
 function spotifyEmbedUrl(spotifyId) {
@@ -538,7 +749,48 @@ function createVideoCard(video, extraClass = "") {
     `;
 }
 
+function createSectionMap(sectionKey) {
+    const map = sectionMaps[sectionKey];
+    const title = t(map.titleKey);
+    const intro = t(map.introKey);
+
+    return `
+        <div class="map-copy">
+            <p class="map-label">Google Maps</p>
+            <h3>${escapeHtml(title)}</h3>
+            <p>${escapeHtml(intro)}</p>
+            <div class="map-locations" aria-label="${escapeHtml(title)}">
+                ${map.locations.map((location) => `
+                    <a href="${escapeHtml(googleMapsSearchUrl(`${location.name}, Italy`))}" target="_blank" rel="noopener">
+                        ${escapeHtml(location.name)}
+                    </a>
+                `).join("")}
+            </div>
+        </div>
+        <div class="map-frame">
+            <a class="map-open-link" href="${escapeHtml(googleMapsSearchUrl(map.mapQuery))}" target="_blank" rel="noopener">
+                Google Maps
+            </a>
+            <div class="mini-map" aria-label="${escapeHtml(title)}">
+                ${createMapRoute(map)}
+                ${createMapPins(map)}
+            </div>
+        </div>
+    `;
+}
+
+function renderSectionMaps() {
+    Object.keys(sectionMaps).forEach((sectionKey) => {
+        const target = document.getElementById(`${sectionKey}-map`);
+        if (target) {
+            target.innerHTML = createSectionMap(sectionKey);
+        }
+    });
+}
+
 function renderVideoGroups() {
+    renderSectionMaps();
+
     document.getElementById("spotlight-grid").innerHTML = spotlightIds
         .map((id) => createVideoCard(getVideoById(id), "spotlight-card"))
         .join("");
