@@ -442,6 +442,118 @@ main {
     margin-bottom: 6rem;
 }
 
+.matrix-showcase {
+    scroll-margin-top: 6rem;
+    margin-bottom: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+}
+
+.matrix-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 1.5rem;
+    margin-bottom: 1.6rem;
+}
+
+.matrix-heading h2 {
+    margin: 0;
+    font-size: 2.25rem;
+    line-height: 1.08;
+    letter-spacing: 0;
+}
+
+.matrix-main-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.35rem;
+    padding-bottom: 0.12rem;
+    color: var(--gold);
+    border-bottom: 2px solid rgba(231, 180, 78, 0.48);
+    font-weight: 800;
+    white-space: nowrap;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.matrix-main-link:hover,
+.matrix-main-link:focus-visible {
+    color: var(--text);
+    border-color: var(--text);
+    outline: none;
+}
+
+.matrix-kicker {
+    margin: 0 0 0.75rem;
+    color: var(--muted);
+    font-size: 0.86rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.matrix-list {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.matrix-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.matrix-item + .matrix-item {
+    border-top: 1px solid var(--line);
+}
+
+.matrix-item h3,
+.matrix-item p {
+    margin: 0;
+}
+
+.matrix-item h3 {
+    font-size: 1.02rem;
+    line-height: 1.2;
+}
+
+.matrix-item p {
+    margin-top: 0.2rem;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.matrix-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.45rem;
+}
+
+.matrix-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 0.38rem 0.6rem;
+    color: var(--faint);
+    background: rgba(255, 255, 255, 0.035);
+    font-size: 0.78rem;
+    font-weight: 800;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.matrix-actions a:hover,
+.matrix-actions a:focus-visible {
+    color: var(--text);
+    border-color: rgba(231, 180, 78, 0.65);
+    background: rgba(231, 180, 78, 0.1);
+    outline: none;
+}
+
 .section-heading {
     max-width: 780px;
     margin-bottom: 1.8rem;
@@ -1026,6 +1138,32 @@ main {
     .showcase,
     .category {
         margin-bottom: 4rem;
+    }
+
+    .matrix-showcase {
+        margin-bottom: 4rem;
+    }
+
+    .matrix-heading,
+    .matrix-item {
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
+
+    .matrix-heading {
+        gap: 0.75rem;
+    }
+
+    .matrix-heading h2 {
+        font-size: 2rem;
+    }
+
+    .matrix-main-link {
+        white-space: normal;
+    }
+
+    .matrix-actions {
+        justify-content: flex-start;
     }
 
     .section-map {
